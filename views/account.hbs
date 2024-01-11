@@ -1,0 +1,37 @@
+{{> header user }}
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+            <br>
+            <h2><u>User Account:</u></h2>
+            <br>
+            </div>
+        </div>
+        <div>
+            <ul class="nav justify-content-end">
+                {{#navLink "/account"}}Account{{/navLink}}
+                {{#navLink "/profile"}}Profile{{/navLink}}
+                {{#navLink "/notifications"}}Notifications{{/navLink}}
+            </ul>
+        </div>
+        <div>
+                <h2>Account Settings</h2>
+                {{#if errorMsg}}
+                <h5>{{errorMsg}}</h5>
+                {{/if}}
+                <div class="display-email">
+                    <form action="/account" method="post">
+                        {{#if userSetting}}
+                        <h5 style="padding:0px 0px 10px 0px">Email:</h5>
+                        <input type="email" id="email" name="email" value={{userSetting.email}}>     
+                        <h5 style="padding:0px 0px 10px 0px">Password:</h5>
+                        <input type="password" id="password" name="password" value={{userSetting.password}}>
+                        {{#if pwMsg}}
+                        {{pwMsg}}
+                        {{/if}}
+                        <input type="submit" value="Change">
+                        {{/if}}
+                    </form> 
+                </div>
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+{{> header user }}
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+        <br>
+        <h2><u>Notifications</u></h2>
+        <br>
+        </div>
+    </div>
+    <div>
+        <ul class="nav justify-content-end">
+            {{#navLink "/account"}}Account{{/navLink}}
+            {{#navLink "/profile"}}Profile{{/navLink}}
+            {{#navLink "/notifications"}}Notifications{{/navLink}}
+        </ul>
+    </div>
+    <div>
+      <div class="col-12">
+        {{#if notifications}}
+        <table class="table">
+        <thead class="thead-dark">
+          <tr>
+              <th class="col-6" id="main_titles">Latest Notifications</th>
+              <th class="col-3" id="main_titles">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each notifications}}
+          <tr>
+            <td>{{this.content}}</td>
+            <td id="main_titles">{{this.date}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+        {{else}}
+        <h5 class="no-notification">No Notifications</h5>
+        {{/if}}
+      </div>
+    </div>
+</div>

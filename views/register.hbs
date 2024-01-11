@@ -1,0 +1,21 @@
+{{> header user }}
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-3 mx-auto">
+    <div class="container">
+        <br><br>
+        {{#if errorMsg}}
+            <h5>{{errorMsg}}</h5>
+        {{/if}}
+    <form class="form" method="post" action="/register">
+        <h5 style="text-align:center">Register</h5>
+        <input type="text" id="username" name="username" placeholder="Username" style="margin: 20px 0px">
+        
+        <input type="email" id="email" name="email" placeholder="Email" style="margin: 20px 0px">
+        <input type="password" id="password" name="password" placeholder="Password" style="margin: 20px 0px">
+        <input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm Password" style="margin: 20px 0px">
+        {{#if pwMsg}}
+            <p>{{pwMsg}}</p>
+        {{/if}}
+        <input type="submit">
+    </form>
+    </div>
+</div>

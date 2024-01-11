@@ -1,0 +1,42 @@
+{{> header user }}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <br>
+            <h2><u>User Profile:</u></h2>
+            <br>
+            </div>
+        </div>
+        <div>
+            <ul class="nav justify-content-end">
+                {{#navLink "/account"}}Account{{/navLink}}
+                {{#navLink "/profile"}}Profile{{/navLink}}
+                {{#navLink "/notifications"}}Notifications{{/navLink}}
+            </ul>
+        </div>
+        <div>
+            {{#if errorMsg}}
+                <h5>{{errorMsg}}</h5>
+            {{/if}}
+            <form action="/profile" method="post" style="margin-top: 20px">
+                <h2>Profile Settings</h2>
+                <div class="display-name">
+                    <h5 style="padding:0px 0px 10px 0px">Display Name: (change this will mean to change your username for login)</h5>
+                    {{#if userSetting}}
+                    <input type="text" id="username" name="username" value={{userSetting.username}}>
+                    {{else}}
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    {{/if}}
+                </div>
+                <div class="about-yourself position-relative">
+                    <h5 style="padding:0px 0px 10px 0px">About yourself:</h5>
+                    {{#if userSetting.about}}
+                    <textarea class="form-control" id="about" rows="4" cols="50" name="about">{{userSetting.about}}</textarea>
+                    {{else}}
+                    <textarea class="form-control" id="about" rows="4" cols="50" name="about" placeholder="*Previous Self Intro text"></textarea>
+                    {{/if}}
+                    <input type="submit" value="Update" style="width:100%">
+                </div>
+            </form>
+        </div>
+    </div>
